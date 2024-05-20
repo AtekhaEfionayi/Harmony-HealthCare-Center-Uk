@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Care Home Records - Harmony Healthcare Center UK</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #1ca368;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background-color: #ff0000;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            width: 100%;
+            position: fixed;
+            top: 0;
+        }
+        .sidebar {
+            background-color: #333;
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            top: 60px;
+            padding-top: 20px;
+            overflow-y: auto;
+        }
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .container {
+            margin-left: 250px;
+            margin-top: 60px;
+            padding: 20px;
+            width: calc(100% - 250px);
+            overflow-y: auto;
+        }
+        h1, h2 {
+            color: #00ff37;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .search-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .search-container input[type="text"] {
+            padding: 7px;
+            font-size: 17px;
+            border: none;
+            border-radius: 3px;
+        }
+        .search-container button {
+            padding: 7px 10px;
+            font-size: 17px;
+            border: none;
+            border-radius: 3px;
+            background: #333;
+            color: white;
+            cursor: pointer;
+        }
+        .search-container button:hover {
+            background: #555;
+        }
+        .button {
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 3px;
+            background: #c41515;
+            color: white;
+            cursor: pointer;
+            display: inline-block;
+            margin: 10px 0;
+        }
+        .button:hover {
+            background: #e60000;
+        }
+        .icon {
+            margin-right: 8px;
+        }
+        .section-content {
+            display: none;
+        }
+        .section-content.active {
+            display: block;
+        }
+        .footer {
+            background-color: #ff0000;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+    <script>
+        function showSection(id) {
+            var sections = document.getElementsByClassName('section-content');
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].classList.remove('active');
+            }
+            document.getElementById(id).classList.add('active');
+        }
+
+        function addPatient() {
+            alert('Add New Patient functionality not yet implemented.');
+        }
+
+        function editRecord(id) {
+            alert('Edit record ' + id + ' functionality not yet implemented.');
+        }
+
+        function deleteRecord(id) {
+            alert('Delete record ' + id + ' functionality not yet implemented.');
+        }
+
+        function addDoctor() {
+            alert('Add New Doctor functionality not yet implemented.');
+        }
+
+        function addNurse() {
+            alert('Add New Nurse functionality not yet implemented.');
+        }
+
+        function addDocument() {
+            alert('Add New Document functionality not yet implemented.');
+        }
+
+        function addBed() {
+            alert('Add New Bed functionality not yet implemented.');
+        }
+
+        function addPrescription() {
+            alert('Add New Prescription functionality not yet implemented.');
+        }
+
+        function addDashboard() {
+            alert('Add New Dashboard functionality not yet implemented.');
+        }
+
+        function addAppointment() {
+            alert('Add New Appointment functionality not yet implemented.');
+        }
+
+        function addDiagnosis() {
+            alert('Add New Diagnosis functionality not yet implemented.');
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div class="search-container">
+            <form action="/search" method="get">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+    <div class="sidebar">
+        <a href="javascript:void(0)" onclick="showSection('patients')"><span class="icon">👥</span>Patient Records</a>
+        <a href="javascript:void(0)" onclick="showSection('doctors')"><span class="icon">👨‍⚕️</span>Doctor Records</a>
+        <a href="javascript:void(0)" onclick="showSection('nurses')"><span class="icon">👩‍⚕️</span>Nurse Records</a>
+        <a href="javascript:void(0)" onclick="showSection('documents')"><span class="icon">📄</span>Documents</a>
+        <a href="javascript:void(0)" onclick="showSection('bedManagement')"><span class="icon">🛏️</span>Bed Management</a>
+        <a href="javascript:void(0)" onclick="showSection('prescriptions')"><span class="icon">💊</span>Prescriptions</a>
+        <a href="javascript:void(0)" onclick="showSection('dashboards')"><span class="icon">📊</span>Dashboards</a>
+        <a href="javascript:void(0)" onclick="showSection('appointments')"><span class="icon">📅</span>Appointments</a>
+        <a href="javascript:void(0)" onclick="showSection('diagnosis')"><span class="icon">🩺</span>Diagnosis</a>
+    </div>
+    <div class="container">
+        <!-- Patient Records Section -->
+        <section id="patients" class="section-content active">
+            <h2><span class="icon">👥</span>Patient Records</h2>
+            <button class="button" onclick="addPatient()">Add New Patient</button>
+            <table id="patientTable">
+                <thead>
+                    <tr>
+                        <th>Patient ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Diagnosis</th>
+                        <th>Contact</th>
+                        <th>Address</th>
+                        <th>Emergency Contact</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1001</td>
+                        <td>John Doe</td>
+                        <td>65</td>
+                        <td>Male</td>
+                        <td>Hypertension</td>
+                        <td>+44 1234 567890</td>
+                        <td>123 Elm St, London, UK</td>
+                        <td>Jane Doe - +44 1234 567891</td>
+                        <td>
+                            <button class="button" onclick="editRecord('1001')">Edit</button>
+                            <button class="button" onclick="deleteRecord('1001')">Delete</button>
+                        </td>
+                    </tr>
+                    <!-- More patient records -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Doctor Records Section -->
+        <section id="doctors" class="section-content">
+            <h2><span class="icon">👨‍⚕️</span>Doctor Records</h2>
+            <button class="button" onclick="addDoctor()">Add New Doctor</button>
+            <table id="doctorTable">
+                <thead>
+                    <tr>
+                        <th>Doctor ID</th>
+                        <th>Name</th>
+                        <th>Specialization</th>
+                        <th>Contact</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>D001</td>
+                        <td>Dr. Alice Johnson</td>
+                        <td>Cardiologist</td>
+                        <td>+44 1234 567892</td>
+                        <td>alice.johnson@harmonyhealthcare.co.uk</td>
+                        <td>45 Maple Rd, London, UK</td>
+                        <td>
+                            <button class="button" onclick="editRecord('D001')">Edit</button>
+                            <button class="button" onclick="deleteRecord('D001')">Delete</button>
+                        </td>
+                    </tr>
+                    <!-- More doctor records -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Nurse Records Section -->
+        <section id="nurses" class="section-content">
+            <h2><span class="icon">👩‍⚕️</span>Nurse Records</h2>
+            <button class="button" onclick="addNurse()">Add New Nurse</button>
+            <table id="nurseTable">
+                <thead>
+                    <tr>
+                        <th>Nurse ID</th>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Contact</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>N001</td>
+                        <td>Emma Williams</td>
+                        <td>General Care</td>
+                        <td>+44 1234 567894</td>
+                        <td>emma.williams@harmonyhealthcare.co.uk</td>
+                        <td>78 Birch St, London, UK</td>
+                        <td>
+                            <button class="button" onclick="editRecord('N001')">Edit</button>
+                            <button class="button" onclick="deleteRecord('N001')">Delete</button>
+                        </td>
+                    </tr>
+                    <!-- More nurse records -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Documents Section -->
+        <section id="documents" class="section-content">
+            <h2><span class="icon">📄</span>Documents</h2>
+            <button class="button" onclick="addDocument()">Add New Document</button>
+            <table id="documentTable">
+                <thead>
+                    <tr>
+                        <th>Document ID</th>
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Type</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>DOC001</td>
+                        <td>Patient Consent Form</td>
+                        <td>2023-01-15</td>
+                        <td>Consent</td>
+                        <td>
+                            <button class="button" onclick="editRecord('DOC001')">Edit</button>
+                            <button class="button" onclick="deleteRecord('DOC001')">Delete</button>
+                        </td>
+                    </tr>
+                    <!-- More document records -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Bed Management Section -->
+        <section id="bedManagement" class="section-content">
+            <h2><span class="icon">🛏️</span>Bed Management</h2>
+            <button class="button" onclick="addBed()">Add New Bed</button>
+            <table id="bedTable">
+                <thead>
+                    <tr>
+                        <th>Bed ID</th>
+                        <th>Ward</th>
+                        <th>Availability</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>BED001</td>
+                        <td>Cardiology</td>
+                        <td>Occupied</td>
+                        <td>
+                            <button class="button" onclick="editRecord('BED001')">Edit</button>
+                            <button class="button" onclick="deleteRecord('BED001')">Delete</button>
+                        </td>
+                    </tr>
+                    <!-- More bed records -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Prescriptions Section -->
+        <section id="prescriptions" class="section-content">
+            <h2><span class="icon">💊</span>Prescriptions</h2>
+            <button class="button" onclick="addPrescription()">Add New Prescription</button>
+            <table id="prescriptionTable">
+                <thead>
+                    <tr>
+                        <th>Prescription ID</th>
+                        <th>Patient ID</th>
+                        <th>Doctor ID</th>
+                        <th>Medication</th>
+                        <th>Dosage</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>PR001</td>
+                        <td>1001</td>
+                        <td>D001</td>
+                        <td>Aspirin</td>
+                        <td>100 mg</td>
+                        <td>2023-01-15</td>
+                        <td>
+                            <button class="button" onclick="editRecord('PR001')">Edit</button>
+                            <button class="button" onclick="deleteRecord('PR001')">Delete</button>
+                        </td>
+                    </tr>
+                    <!-- More prescription records -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Dashboards Section -->
+        <section id="dashboards" class="section-content">
+            <h2><span class="icon">📊</span>Dashboards</h2>
+            <button class="button" onclick="addDashboard()">Add New Dashboard</button>
+            <table id="dashboardTable">
+                <thead>
+                    <tr>
+                        <th>Dashboard ID</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>DASH001</td>
+                        <td>Patient Admissions</td>
+                        <td>Overview of patient admissions</td>
+                        <td>
+                            <button class="button" onclick="editRecord('DASH001')">Edit</button>
+                            <button class="button" onclick="deleteRecord('DASH001')">Delete</button>
+                        </td>
+                    </tr>
+                    <!-- More dashboard records -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Appointments Section -->
+        <section id="appointments" class="section-content">
+            <h2><span class="icon">📅</span>Appointments</h2>
+            <button class="button" onclick="addAppointment()">Add New Appointment</button>
+            <table id="appointmentTable">
+                <thead>
+                    <tr>
+                        <th>Appointment ID</th>
+                        <th>Patient ID</th>
+                        <th>Doctor ID</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>APP001</td>
+                        <td>1001</td>
+                        <td>D001</td>
+                        <td>2023-01-20</td>
+                        <td>10:00 AM</td>
+                        <td>
+                            <button class="button" onclick="editRecord('APP001')">Edit</button>
+                            <button class="button" onclick="deleteRecord('APP001')">Delete</button>
+                        </td>
+                    </tr>
+                    <!-- More appointment records -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Diagnosis Section -->
+        <section id="diagnosis" class="section-content">
+            <h2><span class="icon">🩺</span>Diagnosis</h2>
+            <button class="button" onclick="addDiagnosis()">Add New Diagnosis</button>
+            <table id="diagnosisTable">
+                <thead>
+                    <tr>
+                        <th>Diagnosis ID</th>
+                        <th>Patient ID</th>
+                        <th>Doctor ID</th>
+                        <th>Diagnosis</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>DIAG001</td>
+                        <td>1001</td>
+                        <td>D001</td>
+                        <td>Hypertension</td>
+                        <td>2023-01-10</td>
+                        <td>
+                            <button class="button" onclick="editRecord('DIAG001')">Edit</button>
+                            <button class="button" onclick="deleteRecord('DIAG001')">Delete</button>
+                        </td>
+                    </tr>
+                    <!-- More diagnosis records -->
+                </tbody>
+            </table>
+        </section>
+    </div>
+    <div class="footer">
+        <h1>Harmony Healthcare Center UK - Records</h1>
+    </div>
+</body>
+</html>

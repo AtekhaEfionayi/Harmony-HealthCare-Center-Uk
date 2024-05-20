@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: hwb(84 95% 4%);
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: white;
+        }
+        li {
+            float: left;
+        }
+        li a {
+            display: block;
+            color: red;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        li a:hover {
+            background-color: wheat;
+        }
+        .container {
+            position: sticky;
+            text-align: center;
+            color: hsl(0, 83%, 45%);
+        }
+        .top-left {
+            position: absolute;
+            top: 8px;
+            left: 16px;
+        }
+        .header {
+            background-color: rgba(255, 255, 255, 0.922);
+            color: hsl(0, 98%, 51%);
+            padding: 20px;
+            text-align: center;
+        }
+        .content {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            margin: 20px;
+            padding: 20px;
+            text-align: justify;
+        }
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+        }
+        .image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .image:hover {
+            transform: scale(1.1);
+        }
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        .image-container:hover .image-overlay {
+            opacity: 1;
+        }
+        .image-overlay h1 {
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to Harmony Healthcare Center UK</h1>
+    </div>
+    <div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="Contact Us.html">Contact Us</a></li>
+            <li><a class="active" href="About Us.html">About Us</a></li>
+            <li><a href="#about">Location</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="Register.html">Register</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="top-left">
+            <p>Harmony Healthcare Center UK is a leading provider of comprehensive healthcare services in the Midlands region. Founded over a decade ago by a team of experienced healthcare professionals, our center has grown to become a trusted name in the industry.</p>
+            <p>At Harmony Healthcare Center UK, we are committed to delivering exceptional care to our patients. Our core values include compassion, integrity, and excellence, and these principles guide everything we do.</p>
+            <p>We take pride in our dedicated team of doctors, nurses, therapists, and support staff who work tirelessly to ensure the well-being of our patients. With their expertise and dedication, we are able to provide personalized care tailored to meet the unique needs of each individual.</p>
+            <p>Our center offers a wide range of services, including medical treatment, rehabilitation, long-term care, and specialized programs for conditions such as dementia and Alzheimer's disease. We also prioritize preventive care and wellness initiatives to help our patients live healthier, happier lives.</p>
+            <p>At Harmony Healthcare Center UK, we believe in fostering a warm and welcoming environment where patients feel valued and respected. We strive to create a supportive community where everyone feels like family.</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img class="image" src="Screenshot.jpeg" alt="Harmony Healthcare Center" />
+        <div class="image-overlay">
+            <h1>Experience compassionate care at Harmony Healthcare Center UK</h1>
+        </div>
+    </div>
+    <div class="content">
+        <h3>About Us</h3>
+        <p>Welcome to Harmony Healthcare Center UK, where we believe in providing exceptional healthcare services with compassion and integrity. With a team of dedicated healthcare professionals, we strive to create a nurturing environment where patients feel valued and cared for.</p>
+        <p>Our center is equipped with state-of-the-art facilities and cutting-edge technology to ensure the highest standard of care. Whether you require medical treatment, rehabilitation services, or long-term care, we are here to support you every step of the way.</p>
+        <p>At Harmony Healthcare Center UK, we prioritize patient satisfaction and well-being above all else. Our mission is to promote health and healing while respecting the dignity and autonomy of each individual we serve.</p>
+    </div>
+    <footer>
+        <p>&copy; 2024 Harmony Healthcare Center UK
